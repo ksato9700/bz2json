@@ -1,0 +1,4 @@
+Oktest==0.15.2
+pytest==3.0.1
+python-bugzilla==1.2.2
+simplejson==3.8.2
