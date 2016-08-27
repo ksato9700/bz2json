@@ -6,12 +6,16 @@ import bugzilla
 import simplejson as json
 
 class BzClient:
-    def __init__(self, url):
-        self.bz = bugzilla.Bugzilla(url)
+    def __init__(self, *args, **kwargs):
+        self.bz = bugzilla.Bugzilla(*args, **kwargs)
 
     def query(self, query):
         return self.bz._query(query)["bugs"]
         
+
+    def get_comments(self, idlist):
+        return self.bz.get_comments(idlist)["bugs"]
+
 
 def _dump_handler(obj):
     if hasattr(obj, 'value'):
